@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-container');
+            const totalPriceElement = document.getElementById('total-price');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                totalPriceElement.innerHTML = '';
+                checkoutButton.style.display = 'none';
+                return;
+            }
+
+            let tableContent = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Details</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                const itemPrice = parseFloat(item.price.replace(/₹|,/g, ''));
+                const itemTotal = itemPrice * item.quantity;
+                totalPrice += itemTotal;
+
+                tableContent += `
+                    <tr>
+                        <td><img src="${item.image}" alt="${item.name}"></td>
+                        <td>
+                            <h2>${item.name}</h2>
+                        </td>
+                        <td class="price">₹${itemPrice.toLocaleString()}</td>
+                        <td>
+                            <button onclick="updateQuantity(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)">+</button>
+                        </td>
+                        <td class="total">₹${itemTotal.toLocaleString()}</td>
+                        <td><button onclick="removeItem(${index})">Remove</button></td>
+                    </tr>
+                `;
+            });
+
+            tableContent += `
+                    </tbody>
+                </table>
+            `;
+
+            cartContainer.innerHTML = tableContent;
+            totalPriceElement.innerHTML = `<h2>Total Price: ₹${totalPrice.toLocaleString()}</h2>`;
+            checkoutButton.style.display = 'block';
+        }
+
+        function updateQuantity(index, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart[index];
+            item.quantity = Math.max(1, item.quantity + change); // Ensure quantity is at least 1
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart(); // Reload the cart to reflect changes
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove the item at the given index
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart(); // Reload the cart to reflect changes
+        }
+
+        function checkout() {
+            document.getElementById('cart-container').style.display = 'none';
+            document.getElementById('total-price').style.display = 'none';
+            document.getElementById('checkout-button').style.display = 'none';
+            document.getElementById('payment-methods').style.display = 'block';
+        }
+
+        function addPayment() {
+            alert('Payment Successful');
+            document.getElementById('payment-methods').style.display = 'none';
+            document.getElementById('order-history').style.display = 'block';
+        }
+    </script>
+</head>
+<body onload="loadCart()">
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="product.html">Product Page</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart-container">
+            <!-- Cart items will be loaded here -->
+        </section>
+        <section id="total-price">
+            <!-- Total price will be displayed here -->
+        </section>
+        <button id="checkout-button" style="display: none;" onclick="checkout()">Proceed to Checkout</button>
+        <section id="payment-methods" style="display: none;">
+            <h2>Payment Methods</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment Method</th>
+                        <th>Description</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Credit Card</td>
+                        <td>Pay using your credit card.</td>
+                        <td><button onclick="addPayment()">Add Payment</button></td>
+                    </tr>
+                    <tr>
+                        <td>Debit Card</td>
+                        <td>Pay using your debit card.</td>
+                        <td><button onclick="addPayment()">Add Payment</button></td>
+                    </tr>
+                    <tr>
+                        <td>PayPal</td>
+                        <td>Pay using your PayPal account.</td>
+                        <td><button onclick="addPayment()">Add Payment</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bank Transfer</td>
+                        <td>Transfer money directly from your bank account.</td>
+                        <td><button onclick="addPayment()">Add Payment</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="order-history" style="display: none;">
+            <h2>Order History and Tracking</h2>
+            <p>Your order has been placed successfully. Here is your order tracking information:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Status</th>
+                        <th>Estimated Delivery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123456</td>
+                        <td>Processing</td>
+                        <td>September 10, 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 INNOVATIVE TECH Store</p>
+    </footer>
+</body>
+</html>

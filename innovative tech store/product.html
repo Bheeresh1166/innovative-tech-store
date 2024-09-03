@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVATIVE TECH STORE</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        function addToCart(productId) {
+            const product = document.getElementById(productId);
+            const productDetails = {
+                id: productId,
+                name: product.querySelector('h2').textContent,
+                price: product.querySelector('.price').textContent,
+                image: product.querySelector('img').src,
+                quantity: product.querySelector(`input[name='quantity-${productId}']`).value
+            };
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(productDetails);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart');
+        }
+        
+        function submitReview(productId) {
+            const reviewInput = document.getElementById(`review-${productId}`);
+            const reviewText = reviewInput.value;
+            if (reviewText.trim() === "") {
+                alert('Please enter a review.');
+                return;
+            }
+            alert(`Review submitted for ${productId}: ${reviewText}`);
+            reviewInput.value = ""; // Clear the input after submission
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>INNOVATIVE TECH STORE</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-grid">
+            <article id="product1" class="product-card">
+                <img src="bheeresh pics/img1.jpg" alt="Mobile 1">
+                <h2>vivo pro</h2>
+                <p class="price">₹14,999</p>
+                <p class="details">A high-performance smartphone with exceptional.</p>
+                <div class="quantity-section">
+                    <label for="quantity-product1">Quantity:</label>
+                    <input type="number" id="quantity-product1" name="quantity-product1" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product1')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product1" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product1')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product2" class="product-card">
+                <img src="bheeresh pics/img2.jpg" alt="Mobile 2">
+                <h2>oppo c55</h2>
+                <p class="price">₹9,999</p>
+                <p class="details">A sleek phone with amazing battery life and camera.</p>
+                <div class="quantity-section">
+                    <label for="quantity-product2">Quantity:</label>
+                    <input type="number" id="quantity-product2" name="quantity-product2" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product2')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product2" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product2')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product3" class="product-card">
+                <img src="bheeresh pics/img3.jpg" alt="Mobile 3">
+                <h2>lenovo i5</h2>
+                <p class="price">₹8,999</p>
+                <p class="details">A powerful laptop ideal for work and gaming quality.</p>
+                <div class="quantity-section">
+                    <label for="quantity-product3">Quantity:</label>
+                    <input type="number" id="quantity-product3" name="quantity-product3" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product3')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product3" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product3')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product4" class="product-card">
+                <img src="bheeresh pics/img4.jpg" alt="Mobile 4">
+                <h2>MACK BOOK</h2>
+                <p class="price">₹1,8,999</p>
+                <p class="details">liquid retina display.34.46cm/13.6(diagonal)</p>
+                <div class="quantity-section">
+                    <label for="quantity-product3">Quantity:</label>
+                    <input type="number" id="quantity-product4" name="quantity-product4" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product4')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product4" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product4')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product5" class="product-card">
+                <img src="bheeresh pics/img5.jpg" alt="Mobile 5">
+                <h2>apple buds</h2>
+                <p class="price">₹18,999</p>
+                <p class="details">Airpods pro up to 6 hours of listening time with asingle </p>
+                <div class="quantity-section">
+                    <label for="quantity-product5">Quantity:</label>
+                    <input type="number" id="quantity-product5" name="quantity-product5" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product5')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product5" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product5')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product6" class="product-card">
+                <img src="bheeresh pics/img6.jpg" alt="Mobile 6">
+                <h2>boat headphone</h2>
+                <p class="price">₹8,999</p>
+                <p class="details">boat rockerz bluetooth headphones are play up to 8 </p>
+                <div class="quantity-section">
+                    <label for="quantity-product6">Quantity:</label>
+                    <input type="number" id="quantity-product6" name="quantity-product6" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product6')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product6" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product6')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product7" class="product-card">
+                <img src="bheeresh pics/img7.jpg" alt="Mobile 7">
+                <h2>Zebronics headset</h2>
+                <p class="price">₹4,999</p>
+                <p class="details">mivi wireless headphones dual pairing,enc,aux,voice </p>
+                <div class="quantity-section">
+                    <label for="quantity-product7">Quantity:</label>
+                    <input type="number" id="quantity-product7" name="quantity-product7" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product7')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product7" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product7')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product8" class="product-card">
+                <img src="bheeresh pics/img8.jpg" alt="Mobile 8">
+                <h2>BOAT BUDS</h2>
+                <p class="price">₹2,999</p>
+                <p class="details">boat airpods the top rated wireless earbuds in india</p>
+                <div class="quantity-section">
+                    <label for="quantity-product8">Quantity:</label>
+                    <input type="number" id="quantity-product8" name="quantity-product8" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product8')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product8" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product8')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product9" class="product-card">
+                <img src="bheeresh pics/img9.jpg" alt="Mobile 9">
+                <h2>LG TV</h2>
+                <p class="price">₹48,999</p>
+                <p class="details">lg 4k uhd smart tv-55 inches divers tv range</p>
+                <div class="quantity-section">
+                    <label for="quantity-product9">Quantity:</label>
+                    <input type="number" id="quantity-product9" name="quantity-product9" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product9')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product9" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product9')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product10" class="product-card">
+                <img src="bheeresh pics/img10.jpg" alt="Mobile 10">
+                <h2>lenovo tablet</h2>
+                <p class="price">₹28,999</p>
+                <p class="details">lenovo tab m10 fhd 3rd gen 4gb ram 64gb rom with combo offers</p>
+                <div class="quantity-section">
+                    <label for="quantity-product10">Quantity:</label>
+                    <input type="number" id="quantity-product10" name="quantity-product10" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product10')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product10" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product10')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product11" class="product-card">
+                <img src="bheeresh pics/img11.jpg" alt="Mobile 11">
+                <h2>SAMSUNG tablet</h2>
+                <p class="price">₹38,999</p>
+                <p class="details">samsung galaxy tab a9+8gb ram 128gb rom 11.0 inch with wifi+5g</p>
+                <div class="quantity-section">
+                    <label for="quantity-product11">Quantity:</label>
+                    <input type="number" id="quantity-product11" name="quantity-product11" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product11')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product11" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product11')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product12" class="product-card">
+                <img src="bheeresh pics/img12.jpg" alt="Mobile 12">
+                <h2>philips speakerS</h2>
+                <p class="price">₹28,999</p>
+                <p class="details">philips s180 soundbar with sub woofer,180w,surround sound</p>
+                <div class="quantity-section">
+                    <label for="quantity-product12">Quantity:</label>
+                    <input type="number" id="quantity-product12" name="quantity-product12" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product12')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product12" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product12')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product13" class="product-card">
+                <img src="bheeresh pics/img13.jpg" alt="Mobile 13">
+                <h2>zebronics speaker</h2>
+                <p class="price">₹18,999</p>
+                <p class="details">zebronics zeb wonderbar 10usb powered 2.0 computer with rgb</p>
+                <div class="quantity-section">
+                    <label for="quantity-product13">Quantity:</label>
+                    <input type="number" id="quantity-product13" name="quantity-product13" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product13')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product13" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product13')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product14" class="product-card">
+                <img src="bheeresh pics/img14.jpg" alt="Mobile 14">
+                <h2>SONY TV</h2>
+                <p class="price">₹28,999</p>
+                <p class="details">sony size screen 32 inches led smart tv ultra hd,os,android</p>
+                <div class="quantity-section">
+                    <label for="quantity-product14">Quantity:</label>
+                    <input type="number" id="quantity-product14" name="quantity-product14" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product14')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product14" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product14')">Submit Review</button>
+                </div>
+            </article>
+            <article id="product15" class="product-card">
+                <img src="bheeresh pics/img15.jpg" alt="Mobile 15">
+                <h2>I phone 15 pro</h2>
+                <p class="price">₹89,999</p>
+                <p class="details">i phone 15 pro with 128pxl front camera and back85pxl128gb storage</p>
+                <div class="quantity-section">
+                    <label for="quantity-product15">Quantity:</label>
+                    <input type="number" id="quantity-product15" name="quantity-product15" min="1" value="1">
+                </div>
+                <div class="action-buttons">
+                    <button onclick="addToCart('product15')">Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+                <div class="review-section">
+                    <textarea id="review-product15" placeholder="Write your review here..."></textarea>
+                    <button onclick="submitReview('product15')">Submit Review</button>
+                </div>
+            </article>
+            <!-- Repeat for other products -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 INNOVATIVE TECH Store</p>
+    </footer>
+</body>
+</html>

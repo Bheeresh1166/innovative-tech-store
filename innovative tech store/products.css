@@ -1,0 +1,206 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Light gray background for a modern look */
+}
+
+/* Header Styles */
+header {
+    background-color: #1e2a38; /* Dark background for the header */
+    color: #ffffff; /* White text for contrast */
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcb05; /* Highlight color on hover */
+}
+
+/* Main Section Styles */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Product Card Styles */
+.product-card {
+    background-color: #1e2a38; /* Dark background for the header */;
+    padding: 15px; /* Reduced padding */
+    border-radius: 8px; /* Slightly smaller border radius */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card:hover {
+    transform: translateY(-3px); /* Slightly reduced hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    max-width: 90%; /* Slightly smaller image */
+    height: auto;
+    border-radius: 6px; /* Slightly smaller border radius */
+}
+/* Add this CSS for zoom effect */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.product-card img:hover {
+    transform: scale(1.2); /* Adjust the scale factor as needed */
+}
+
+.product-card h2 {
+    margin: 8px 0; /* Reduced margin */
+    font-size: 1.4em; /* Smaller font size */
+    color: #ffffff;
+}
+
+.product-card .price {
+    font-size: 1.2em; /* Smaller font size */
+    color: #ffffff; /* Dark color for price */
+    margin: 8px 0; /* Reduced margin */
+}
+
+.product-card .details {
+    font-size: 0.9em; /* Smaller font size */
+    color: #ffffff;
+    margin: 8px 0; /* Reduced margin */
+}
+
+/* Quantity Section Styles */
+.quantity-section {
+    margin: 10px 0; /* Reduced margin */
+    text-align: left;
+    font-size: 0.8em; /* Smaller text size */
+    color: #ffffff; /* Darker color for contrast */
+}
+
+.quantity-section label {
+    display: block;
+    margin-bottom: 4px; /* Reduced margin */
+    font-size: 0.8em; /* Smaller font size */
+    color: #ffffff; /* Darker color for contrast */
+}
+
+.quantity-section input[type="number"] {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border-radius: 4px; /* Smaller border radius */
+    border: 1px solid #ccc; /* Lighter border color */
+    font-size: 0.9em; /* Smaller font size */
+}
+
+/* Action Buttons Styles */
+.action-buttons {
+    margin: 10px 0; /* Reduced margin */
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.action-buttons button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px; /* Reduced padding */
+    border-radius: 4px; /* Smaller border radius */
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    transition: background-color 0.3s;
+    flex: 1; /* Make buttons take equal width */
+}
+
+.action-buttons button:first-child {
+    margin-right: 10px; /* Space between buttons */
+}
+
+.action-buttons button:hover {
+    background-color: #0056b3; /* Slightly darker shade on hover */
+}
+
+/* Review Section Styles */
+.review-section {
+    margin-top: 15px; /* Reduced margin */
+    text-align: left;
+}
+
+.review-section textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    height: 50px; /* Slightly reduced height */
+    padding: 8px; /* Reduced padding */
+    border-radius: 4px; /* Smaller border radius */
+    border: 1px solid #ddd; /* Lighter border color */
+    font-size: 0.9em; /* Smaller font size */
+    color: #333333; /* Darker text color */
+}
+
+.review-section button {
+    background-color: #28a745; /* Green button for submission */
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px; /* Reduced padding */
+    border-radius: 4px; /* Smaller border radius */
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    margin-top: 5px; /* Margin between textarea and button */
+    transition: background-color 0.3s;
+}
+
+.review-section button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+/* Footer Styles */
+footer {
+    background: #1e2a38; /* Dark background for the header */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
