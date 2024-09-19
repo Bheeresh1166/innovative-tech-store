@@ -1,4 +1,17 @@
+﻿# E-commerce-website-
+ # Innovative Tech Store
+Welocome to *Innovative tech store* is a user-friendly e-commerce website built using HTML, CSS, and JavaScript. This project offers a seamless shopping experience, showcasing products with a clean and responsive design.Innovative tech store is your ultimate online shopping destination, offering a diverse range of high-quality products at competitive prices. From the latest fashion trends and cutting-edge electronics to home essentials and unique gifts, we cater to all your needs in one convenient place. Our user-friendly interface ensures a seamless shopping experience, while our secure payment options and reliable customer service provide peace of mind with every purchase. Explore Shop Away today and enjoy a world of shopping possibilities at your fingertips.
 
+## Table of Contents
+- [About Shop Away](#about-shop-away)
+- [Features](#features)
+- [Installation](#installation)
+- [Techonologies Used](#technologies-used)
+- [How To Access](#how-to-access)
+- [Project Status](#project-status)
+- [Author](#author)
+- [Contact](#contact)
+- [License](#license)
 - [Techonologies Used](#technologies-used)
 ## Features
 - **User-Friendly Interface**: Clean, intuitive design with easy navigation and search functionality.
