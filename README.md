@@ -45,7 +45,7 @@ JavaScript: Enhancing user interaction and functionality.
 
 ## How to Access
 The website is deployed and can be accessed via (#https://github.com/Bheeresh1166/innovative-tech-store-/)
-Netlify (#innovativetechstore.netlify.app)
+Netlify (#http://innovativetechstore.netlify.app/)
 
 ## Project Status
 The project is currently live and continuously updated with new features and improvements.
