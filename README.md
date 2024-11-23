@@ -28,7 +28,7 @@ To set up Innovative tech store locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-   git clone https://github.com/Bheeresh1166/innovative-tech-store
+   git clone https://github.com/innovative-tech-store
 2. To run this application, we are supposed to install nodejs modules such as mongoose, express and body-parser
     ```bash
    npm install {modulename}
